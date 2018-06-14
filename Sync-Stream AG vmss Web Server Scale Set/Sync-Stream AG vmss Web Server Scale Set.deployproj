@@ -28,12 +28,20 @@
     <Content Include="artifacts\vm1.default.htm" />
     <Content Include="artifacts\vm2.default.htm" />
     <Content Include="artifacts\web.config" />
+    <None Include="artifacts\backend-public.cer" />
+    <None Include="artifacts\backend-public.txt" />
+    <None Include="artifacts\backend.pfx" />
+    <None Include="artifacts\backend.txt" />
+    <None Include="artifacts\frontend.pfx" />
+    <None Include="artifacts\frontend.txt" />
     <None Include="Deployment.targets">
       <Visible>False</Visible>
     </None>
     <Content Include="Deploy-AzureResourceGroup.ps1" />
     <Content Include="README.md" />
-    <Content Include="DSC\iisInstall.ps1.zip" />
+    <Content Include="nestedtemplates\Updates and Upgrades vmss script for Sync-Stream.json" />
+    <Content Include="nestedtemplates\Updates and Upgrades vmss script for Sync-Stream.parameters.json" />
+    <None Include="DSC\iisaspnet.ps1" />
   </ItemGroup>
   <Target Name="GetReferenceAssemblyPaths" />
 </Project>

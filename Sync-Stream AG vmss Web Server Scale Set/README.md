@@ -40,7 +40,7 @@ Get-ChildItem -Path $(New-SelfSignedCertificate -dnsname frontend.frontend).pspa
 **Back end certificate**
 
 ```
-$cert = Get-ChildItem -Path $(New-SelfSignedCertificate -dnsname backend.backend).pspath
+$cert = Get-ChildItem -Path $(New-SelfSignedCertificate -dnsname backend.backend).pspath 
 Export-PfxCertificate -Cert $cert -FilePath "C:\backend.pfx" -Password $(ConvertTo-SecureString -String "Password1234" -Force -AsPlainText)
 ```
 

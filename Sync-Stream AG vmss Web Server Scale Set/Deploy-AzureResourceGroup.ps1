@@ -1,8 +1,8 @@
 #Requires -Version 3.0
 
 Param(
-    [string] [Parameter(Mandatory=$true)] $ResourceGroupLocation,
-    [string] $ResourceGroupName = 'Sync-StreamAGvmssWebServerScaleSet',
+    [string] [Parameter(Mandatory=$true)] $ResourceGroupLocation, = 'eastus'
+    [string] $ResourceGroupName, = 'Sync-StreamAGvmssWebServerScaleSet',
     [switch] $UploadArtifacts,
     [string] $StorageAccountName,
     [string] $StorageContainerName = $ResourceGroupName.ToLowerInvariant() + '-stageartifacts',
@@ -93,10 +93,10 @@ if ($UploadArtifacts) {
 New-AzureRmResourceGroup -Name $ResourceGroupName -Location $ResourceGroupLocation -Verbose -Force
 
 if ($ValidateOnly) {
-    $ErrorMessages = Format-ValidationOutput (Test-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName `
-                                                                                  -TemplateFile $TemplateFile `
-                                                                                  -TemplateParameterFile $TemplateParametersFile `
-                                                                                  @OptionalParameters)
+    $ErrorMessages = Format-ValidationOutput -ResourceGroupName $ResourceGroupName `
+                                             -TemplateFile $TemplateFile `
+                                             -TemplateParameterFile $TemplateParametersFile `
+                                             @OptionalParameters
     if ($ErrorMessages) {
         Write-Output '', 'Validation returned the following errors:', @($ErrorMessages), '', 'Template is invalid.'
     }
