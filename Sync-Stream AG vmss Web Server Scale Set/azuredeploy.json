@@ -158,10 +158,10 @@
 			"type": "string",
 			"minLength": 1
 		},
-		"SS-AG-JB-001AdminPassword": {
+		"SsAgJb001AdminPassword": {
 			"type": "securestring"
 		},
-		"SS-AG-JB-001WindowsOSVersion": {
+		"SsAgJb001WindowsOSVersion": {
 			"type": "string",
 			"defaultValue": "2016-Datacenter",
 			"allowedValues": [
