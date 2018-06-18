@@ -1,23 +1,13 @@
-Configuration IISASPNET
-{
-  Node localhost
-  {
-    #Install the IIS Role
-    WindowsFeature IIS
-    {
-      Ensure = "Present"
-      Name = "Web-Server"
-    }
-    #Install ASP.NET 4.5
-    WindowsFeature ASP
-    {
-      Ensure = "Present"
-      Name = "Web-Asp-Net45"
-    }
-    WindowsFeature WebServerManagementConsole
-    {
-        Name = "Web-Mgmt-Console"
-        Ensure = "Present"
-    }
-  }
-} 
+$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1"); 
+  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+$vmss = Get-AzureRmVmss -ResourceGroupName PaaS_OWASP3_IISS_SS-RG -VMScaleSetName ssweb01
+Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
+  -Name "customScript" `
+  -Publisher "Microsoft.Compute" `
+  -Type "CustomScriptExtension" `
+  -TypeHandlerVersion 1.8 `
+  -Setting $publicSettings
+Update-AzureRmVmss `
+  -ResourceGroupName PaaS_OWASP3_IISS_SS-RG `
+  -Name ssweb01 `
+  -VirtualMachineScaleSet $vmss
