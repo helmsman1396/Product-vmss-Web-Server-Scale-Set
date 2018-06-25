@@ -1,7 +1,7 @@
 #Requires -Version 3.0
 
 Param(
-    [string] [Parameter(Mandatory=$true)] $ResourceGroupLocation, = 'eastus'
+    [string] [Parameter(Mandatory=$true)] $ResourceGroupLocation() = 'eastus'
     [string] $ResourceGroupName, = 'Sync-StreamAGvmssWebServerScaleSet',
     [switch] $UploadArtifacts,
     [string] $StorageAccountName,
