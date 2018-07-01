@@ -25,15 +25,8 @@
   <ItemGroup>
     <Content Include="azuredeploy.parameters.json" />
     <Content Include="azuredeploy.json" />
-    <Content Include="artifacts\vm1.default.htm" />
-    <Content Include="artifacts\vm2.default.htm" />
-    <Content Include="artifacts\web.config" />
-    <None Include="artifacts\backend-public.cer" />
-    <None Include="artifacts\backend-public.txt" />
-    <None Include="artifacts\backend.pfx" />
-    <None Include="artifacts\backend.txt" />
-    <None Include="artifacts\frontend.pfx" />
-    <None Include="artifacts\frontend.txt" />
+    <None Include="artifacts\SSCJCertwkey.pfx" />
+    <None Include="artifacts\ssHttpsSsslCert_070b15682f46487aabf01aed69ccdcb6.cer" />
     <None Include="Deployment.targets">
       <Visible>False</Visible>
     </None>
