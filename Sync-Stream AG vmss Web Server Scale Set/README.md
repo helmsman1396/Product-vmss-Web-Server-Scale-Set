@@ -34,20 +34,20 @@ Run the following PowerShell commands to create the self-signed certificates. Re
 **Front end certificate**
 
 ```
-Get-ChildItem -Path $(New-SelfSignedCertificate -dnsname frontend.frontend).pspath | Export-PfxCertificate -FilePath "C:\frontend.pfx" -Password $(ConvertTo-SecureString -String "Password1234" -Force -AsPlainText)
+Get-ChildItem -Path $(New-SelfSignedCertificate -dnsname frontend.frontend).pspath | Export-PfxCertificate -FilePath "C:\sscerts\frontend.pfx" -Password $(ConvertTo-SecureString -String "JustBEEtw33nu&me!" -Force -AsPlainText)
 ```
 
 **Back end certificate**
 
 ```
 $cert = Get-ChildItem -Path $(New-SelfSignedCertificate -dnsname backend.backend).pspath 
-Export-PfxCertificate -Cert $cert -FilePath "C:\backend.pfx" -Password $(ConvertTo-SecureString -String "Password1234" -Force -AsPlainText)
+Export-PfxCertificate -Cert $cert -FilePath "C:\sscerts\backend.pfx" -Password $(ConvertTo-SecureString -String "JustBEEtw33nu&me!" -Force -AsPlainText)
 ```
 
 **Back end public key**
 
 ```
-Export-Certificate -Cert $cert -FilePath "C:\backend-public.cer"
+Export-Certificate -Cert $cert -FilePath "C:\sscerts\backend-public.cer"
 ```
 
 ### Encode the certs

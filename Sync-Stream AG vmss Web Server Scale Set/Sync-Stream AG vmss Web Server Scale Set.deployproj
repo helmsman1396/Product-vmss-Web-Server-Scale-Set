@@ -23,14 +23,24 @@
   <Import Condition=" Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Deployment\1.1\DeploymentProject.targets') " Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Deployment\1.1\DeploymentProject.targets" />
   <!-- vertag<:>end -->
   <ItemGroup>
-    <Content Include="azuredeploy.parameters.json" />
-    <Content Include="azuredeploy.json" />
-    <None Include="artifacts\SSCJCertwkey.pfx" />
-    <None Include="artifacts\ssHttpsSsslCert_070b15682f46487aabf01aed69ccdcb6.cer" />
+    <Content Include="azuredeploy.parameters.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="azuredeploy.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="artifacts\SSCJCertwkey.pfx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="artifacts\ssHttpsSsslCert_070b15682f46487aabf01aed69ccdcb6.cer">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Deployment.targets">
       <Visible>False</Visible>
     </None>
-    <Content Include="Deploy-AzureResourceGroup.ps1" />
+    <Content Include="Deploy-AzureResourceGroup.ps1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="README.md" />
     <Content Include="nestedtemplates\Updates and Upgrades vmss script for Sync-Stream.json" />
     <Content Include="nestedtemplates\Updates and Upgrades vmss script for Sync-Stream.parameters.json" />

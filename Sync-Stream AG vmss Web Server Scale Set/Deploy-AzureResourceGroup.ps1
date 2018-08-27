@@ -1,14 +1,14 @@
 #Requires -Version 3.0
 
 Param(
-    [string] [Parameter(Mandatory=$true)] $ResourceGroupLocation() = 'eastus'
-    [string] $ResourceGroupName, = 'Sync-StreamAGvmssWebServerScaleSet',
+    [string] [Parameter(Mandatory=$true)] $ResourceGroupLocation() = 'southcentralus'
+    [string] $ResourceGroupName = 'ssappgtwwafss',
     [switch] $UploadArtifacts,
     [string] $StorageAccountName,
     [string] $StorageContainerName = $ResourceGroupName.ToLowerInvariant() + '-stageartifacts',
     [string] $TemplateFile = 'azuredeploy.json',
     [string] $TemplateParametersFile = 'azuredeploy.parameters.json',
-    [string] $ArtifactStagingDirectory = '.',
+    [string] $ArtifactStagingDirectory = 'artifacts',
     [string] $DSCSourceFolder = 'DSC',
     [switch] $ValidateOnly
 )
