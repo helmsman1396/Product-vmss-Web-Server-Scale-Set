@@ -95,8 +95,7 @@ New-AzureRmResourceGroup -Name $ResourceGroupName -Location $ResourceGroupLocati
 if ($ValidateOnly) {
     $ErrorMessages = Format-ValidationOutput -ResourceGroupName $ResourceGroupName `
                                              -TemplateFile $TemplateFile `
-                                             -TemplateParameterFile $TemplateParametersFile `
-                                             @OptionalParameters
+                                             -TemplateParameterFile $TemplateParametersFile  
     if ($ErrorMessages) {
         Write-Output '', 'Validation returned the following errors:', @($ErrorMessages), '', 'Template is invalid.'
     }
